@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Troika&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui" {
+    themes:
+        heritage --default,
+        dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+    name: "heritage";
+    default: false;
+    prefersdark: false;
+    color-scheme: "light";
+
+    /* Surface Colors */
+    --color-base-100: oklch(92% 0.04 75); /* Very light cream/tan */
+    --color-base-200: oklch(88% 0.06 75); /* Muted tan (logo background) */
+    --color-base-300: oklch(82% 0.08 75); /* Depth tan */
+    --color-base-content: oklch(18% 0.03 22); /* The deep brown from the logo */
+
+    /* Brand Colors */
+    --color-primary: oklch(38% 0.13 23); /* Deep Shield Red */
+    --color-primary-content: oklch(98% 0.01 23);
+
+    --color-secondary: oklch(60% 0.16 51); /* Earthy Orange */
+    --color-secondary-content: oklch(98% 0.01 51);
+
+    --color-accent: oklch(50% 0.11 125); /* Olive Green from shield */
+    --color-accent-content: oklch(98% 0.01 125);
+
+    --color-neutral: oklch(18% 0.03 22); /* Deepest Brown from logo */
+    --color-neutral-content: oklch(92% 0.04 75);
+
+    /* Functional Colors */
+    --color-info: oklch(65% 0.12 230);
+    --color-success: oklch(60% 0.15 150);
+    --color-warning: oklch(80% 0.15 85);
+    --color-error: oklch(55% 0.2 25);
+
+    /* Style Tuning */
+    --radius-selector: 0.5rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.75rem;
+    --border: 1px;
+    --depth: 1;
+    --font-family: "Troika", sans-serif;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --font-troika: "Troika", sans-serif;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-troika: var(--font-troika);
+    --font-sans: var(--font-troika);
+    --font-mono: var(--font-geist-mono);
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-troika);
+}
