@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="heritage">
-      <body className={``}>{children}</body>
+      <body className={` `}>{children}</body>
     </html>
   );
 }
