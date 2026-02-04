@@ -5,7 +5,7 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 
 const HomeHero = () => {
   return (
-    <section data-theme="heritage" className=" relative">
+    <section className=" relative">
       <div className=" h-screen w-full relative">
         <Image
           src={"/images/indatwa-web-bg.jpg"}
