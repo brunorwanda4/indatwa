@@ -17,7 +17,7 @@ const HomeHero = () => {
       </div>
       <main className=" absolute top-0 left-0 z-20 w-full h-full">
         <div className=" grid place-content-center h-full">
-          <h1 className="text-[12rem] font-black text-background  font-troika ">
+          <h1 className="text-[12rem] font-black text-background  font-archivo-black ">
             INDATWA
           </h1>
           <div className=" -mt-30 flex justify-between items-center">

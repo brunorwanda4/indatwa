@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { fontArchivoBlack } from "@/lib/fonts/fonts";
+
 
 export const metadata: Metadata = {
   title: "Indatwa",
@@ -23,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="heritage">
-      <body className={` `}>{children}</body>
+      <body className={cn(fontArchivoBlack.variable)}>{children}</body>
     </html>
   );
 }

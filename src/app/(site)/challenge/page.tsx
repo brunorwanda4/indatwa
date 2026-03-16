@@ -1,6 +1,7 @@
 const ChallengePage = () => {
   return (
     <div className=" min-h-screen bg-neutral">
+      <h1>Education challenge</h1>
       <div>
         <p className=" mt-4 text-lg">
           The public schools in Africa are characterized by devastating
