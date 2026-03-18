@@ -1,9 +1,11 @@
 "use client";
 
 import { CalendarDays, CheckCircle2, Hash, Play } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CometCard } from "@/components/ui/comet-card";
 import {
 	Dialog,
 	DialogContent,
@@ -12,113 +14,19 @@ import {
 	DialogTitle,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import { type Challenge, ELabChallenges } from "@/const/e-lab-challengs";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-interface Challenge {
-	id: number;
-	label: string; // "001"
-	tag: string; // "002"  ← shown above the subtitle/title
-	name: string;
-	title: string; // big word shown on slide  e.g. "Particles"
-	description: string;
-	image: string;
-	video?: string;
-	time: string;
-	completed: boolean;
-}
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-const BASE: Omit<Challenge, "completed">[] = [
-	{
-		id: 1,
-		label: "001",
-		tag: "001",
-		name: "Introduction",
-		title: "Particles",
-		description:
-			"We are Indatwa students from ALU — a generation reshaping how Africa learns and builds. This challenge introduces who we are, where we come from, and why we show up every day.",
-		image: "/images/indatwa.jpg",
-		video: "/videos/indatwa.mp4",
-		time: "12/02/2026",
-	},
-	{
-		id: 2,
-		label: "002",
-		tag: "002",
-		name: "Neural Drift",
-		title: "Metaballs",
-		description:
-			"Mapping the invisible currents that shape our thinking. Students explored how cognitive bias, attention, and flow states define performance inside and outside the classroom.",
-		image: "/images/neural.jpg",
-		time: "14/02/2026",
-	},
-	{
-		id: 3,
-		label: "003",
-		tag: "003",
-		name: "Ghost Protocol",
-		title: "Fractals",
-		description:
-			"A deep dive into systems thinking — how small inputs ripple into massive outcomes. Teams modeled real-world feedback loops using data gathered from their campus environment.",
-		image: "/images/ghost.jpg",
-		video: "/videos/ghost.mp4",
-		time: "18/02/2026",
-	},
-	{
-		id: 4,
-		label: "004",
-		tag: "004",
-		name: "Echo Chamber",
-		title: "Resonance",
-		description:
-			"Understanding how communities amplify ideas — both destructive and generative. Students built micro-projects designed to break information silos within their cohort.",
-		image: "/images/echo.jpg",
-		time: "22/02/2026",
-	},
-	{
-		id: 5,
-		label: "005",
-		tag: "005",
-		name: "Void Protocol",
-		title: "Entropy",
-		description:
-			"Sitting with ambiguity. This challenge stripped away rubrics and grades — students were given only a problem statement and 48 hours. No instructions. Pure creative autonomy.",
-		image: "/images/void.jpg",
-		video: "/videos/void.mp4",
-		time: "26/02/2026",
-	},
-	{
-		id: 6,
-		label: "006",
-		tag: "006",
-		name: "Static Mind",
-		title: "Noise",
-		description:
-			"A challenge about mental clarity — identifying the static that prevents deep work. Teams presented personal anti-distraction systems built from behavioral research.",
-		image: "/images/static.jpg",
-		time: "01/03/2026",
-	},
-	{
-		id: 7,
-		label: "007",
-		tag: "007",
-		name: "Deep Scan",
-		title: "Synthesis",
-		description:
-			"The capstone. Everything learned across six challenges converges here. Students presented a unified theory of their own learning — backed by evidence, personal data, and raw honesty.",
-		image: "/images/deep.jpg",
-		video: "/videos/deep.mp4",
-		time: "05/03/2026",
-	},
-];
 
-const TOTAL = BASE.length;
+const TOTAL = ELabChallenges.length;
 const ROUNDS = 5;
 const START = 2;
 
 function buildList(done: boolean[]) {
 	return Array.from({ length: ROUNDS }, (_, r) =>
-		BASE.map((ch, i) => ({
+		ELabChallenges.map((ch, i) => ({
 			...ch,
 			completed: done[i],
 			instanceKey: `${r}-${i}`,
@@ -240,7 +148,7 @@ function ProgressSidebar({
 	return (
 		<aside className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center select-none">
 			<div className="w-px h-8 bg-white/10" />
-			{BASE.map((_, i) => (
+			{ELabChallenges.map((_, i) => (
 				<div key={i} className="flex flex-col items-center">
 					<span
 						className="rounded-full transition-all duration-300"
@@ -276,7 +184,7 @@ function ProgressSidebar({
 				className="mt-2 font-mono text-[9px] tracking-widest text-white/30"
 				style={{ writingMode: "vertical-rl" }}
 			>
-				{completedCount}/{TOTAL}
+				{active + 1}/{TOTAL}
 			</p>
 		</aside>
 	);
@@ -295,6 +203,7 @@ function ChallengeRow({
 }) {
 	const isLeft = ch.id % 2 === 1; // odd → image on left
 
+	const isThrid = ch.id % 3 === 0;
 	return (
 		<div
 			onClick={onClick}
@@ -307,36 +216,39 @@ function ChallengeRow({
 				style={{ width: 48 }}
 			/>
 
+			{isThrid && <MetaCluster size={90} seed={ch.id * 7} />}
+
 			{isLeft ? (
 				// ── ODD: [image LEFT] ──── line ──── [tag + title RIGHT] ──
 				<>
-					{/* Image card */}
-					<div
-						className="absolute flex-shrink-0 rounded-2xl overflow-hidden border border-white/8 bg-white/[0.025]"
-						style={{
-							left: "clamp(80px, 10vw, 200px)",
-							top: "50%",
-							transform: "translateY(-50%)",
-							width: "clamp(180px, 22vw, 300px)",
-							height: "clamp(155px, 19vw, 250px)",
-						}}
-					>
-						<SmokyBlob size={280} seed={ch.id * 3} />
-						{/* actual image overlay — if it loads, it sits on top */}
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img
-							src={ch.image}
-							alt={ch.name}
-							className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity"
-							onError={(e) =>
-								((e.target as HTMLImageElement).style.display = "none")
-							}
-						/>
-						{ch.completed && (
-							<div className="absolute bottom-2 left-1/2 -translate-x-1/2 font-mono text-[8px] tracking-widest text-white/45 border border-white/18 px-2 py-0.5 bg-black/70 whitespace-nowrap rounded-sm">
-								✓ DONE
-							</div>
-						)}
+					<div className=" ml-22">
+						<CometCard>
+							<button
+								type="button"
+								className="flex w-80 cursor-pointer flex-col items-stretch rounded-[16px] border-0 bg-[#1F2121] p-2  z-30"
+								aria-label="View invite F7RA"
+								style={{
+									transformStyle: "preserve-3d",
+									transform: "none",
+									opacity: 1,
+								}}
+							>
+								<div className="mx-2 flex-1">
+									<div className="relative mt-2 aspect-[3/4] w-full size-80">
+										<Image
+											src={ch.image}
+											alt="Invite background"
+											className="absolute inset-0 h-full w-full rounded-[16px] bg-[#000000] object-cover contrast-75"
+											style={{
+												boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
+												opacity: 1,
+											}}
+											fill
+										/>
+									</div>
+								</div>
+							</button>
+						</CometCard>
 					</div>
 
 					{/* Horizontal line: starts at right edge of image card, ends just before title */}
@@ -351,7 +263,7 @@ function ChallengeRow({
 					/>
 
 					{/* Tag + Title — RIGHT side */}
-					<div className="absolute right-10 top-1/2 -translate-y-1/2 text-right">
+					<div className="absolute right-10 top-1/2 -translate-y-1/2 text-right bg-base-100">
 						{/* tag number sits above the title */}
 						<p className="font-mono text-[10px] tracking-widest text-white/30 mb-1">
 							{ch.tag}
@@ -369,15 +281,15 @@ function ChallengeRow({
 				<>
 					{/* Tag + Title — LEFT side */}
 					<div
-						className="absolute top-1/2 -translate-y-1/2 text-left"
+						className="absolute top-1/2 -translate-y-1/2 text-left bg-base-100 z-10 pr-4"
 						style={{ left: "clamp(80px, 10vw, 200px)" }}
 					>
 						{/* tag above title */}
-						<p className="font-mono text-[10px] tracking-widest text-white/30 mb-1">
+						<p className="font-mono text-[10px] tracking-widest text-white/30 mb-1 ">
 							{ch.label}
 						</p>
 						<h2
-							className="font-display font-light text-white/65 tracking-tight leading-none"
+							className="font-display font-light text-white/65 tracking-tight leading-none bg-base-100"
 							style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
 						>
 							{ch.title}
@@ -395,15 +307,37 @@ function ChallengeRow({
 					/>
 
 					{/* Mini metaball cluster — RIGHT side */}
-					<div
-						className="absolute top-1/2 -translate-y-1/2"
-						style={{ right: "clamp(80px, 12vw, 200px)" }}
-					>
-						<MetaCluster size={90} seed={ch.id * 7} />
+					<div className=" flex justify-end w-full pr-12">
+						<CometCard>
+							<button
+								type="button"
+								className="flex w-80 cursor-pointer flex-col items-stretch rounded-[16px] border-0 bg-[#1F2121] p-2  z-30"
+								aria-label="View invite F7RA"
+								style={{
+									transformStyle: "preserve-3d",
+									transform: "none",
+									opacity: 1,
+								}}
+							>
+								<div className="mx-2 flex-1">
+									<div className="relative mt-2 aspect-[3/4] w-full size-80">
+										<Image
+											src={ch.image}
+											alt="Invite background"
+											className="absolute inset-0 h-full w-full rounded-[16px] bg-[#000000] object-cover contrast-75"
+											style={{
+												boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
+												opacity: 1,
+											}}
+											fill
+										/>
+									</div>
+								</div>
+							</button>
+						</CometCard>
 					</div>
 				</>
 			)}
-
 			{/* Hover shimmer */}
 			<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-r from-transparent via-white/[0.012] to-transparent" />
 		</div>
@@ -594,52 +528,30 @@ export default function ChallengesScroll() {
 	}, [done]);
 
 	return (
-		<>
-			<style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap');
-        .font-display { font-family: 'Syne', sans-serif; }
-        .font-mono    { font-family: 'Space Mono', monospace; }
+		<div className="grain vignette relative w-screen h-screen overflow-hidden  px-8">
+			<ProgressSidebar done={done} active={active} />
 
-        /* grain */
-        .grain::before {
-          content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: 0.055;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-        /* vignette */
-        .vignette::after {
-          content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-          background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%);
-        }
-      `}</style>
-
-			<div className="grain vignette relative w-screen h-screen overflow-hidden bg-[#080808] font-display">
-				<ProgressSidebar done={done} active={active} />
-
-				{/* ── Horizontal divider line in center of screen ── */}
-				{/*<div className="absolute left-0 right-0 top-1/2 h-px bg-white/10 z-10 pointer-events-none" />*/}
-
-				{/* ── Scroll container — each row is 50vh, snaps per row ── */}
-				<div
-					ref={scrollRef}
-					className="w-full h-full overflow-y-scroll"
-					style={{ scrollSnapType: "y mandatory", scrollbarWidth: "none" }}
-				>
-					{items.map((ch) => (
-						<ChallengeRow
-							key={ch.instanceKey}
-							ch={ch}
-							onClick={() => handleOpen(ch)}
-						/>
-					))}
-				</div>
-
-				<ChallengeDialog
-					ch={selected}
-					open={open}
-					onOpenChange={setOpen}
-					onComplete={markComplete}
-				/>
+			{/* ── Scroll container — each row is 50vh, snaps per row ── */}
+			<div
+				ref={scrollRef}
+				className="w-full h-full overflow-y-scroll space-y-12"
+				style={{ scrollSnapType: "y mandatory", scrollbarWidth: "none" }}
+			>
+				{items.map((ch) => (
+					<ChallengeRow
+						key={ch.instanceKey}
+						ch={ch}
+						onClick={() => handleOpen(ch)}
+					/>
+				))}
 			</div>
-		</>
+
+			<ChallengeDialog
+				ch={selected}
+				open={open}
+				onOpenChange={setOpen}
+				onComplete={markComplete}
+			/>
+		</div>
 	);
 }
