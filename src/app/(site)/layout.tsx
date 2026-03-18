@@ -1,14 +1,19 @@
-import SiteNav from "@/components/global/site-nav";
+// SiteLayout.tsx
+"use client";
+import { useState } from "react";
+import { SpotlightCursor } from "@/components/my-components/spotlight-cursor";
+import SiteNavbar from "@/components/site/common/site-navbar";
 
-const SiteLayout = (props: LayoutProps<"/">) => {
-  const { children } = props;
+const SiteLayout = (prompt: LayoutProps<"/">) => {
+	const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  return (
-    <main className="">
-      <SiteNav />
-      {children}
-    </main>
-  );
+	return (
+		<main className="font-inter max-w-7xl">
+			<SpotlightCursor disabled={mobileNavOpen} />
+			<SiteNavbar onMobileNavChange={setMobileNavOpen} />
+			{prompt.children}
+		</main>
+	);
 };
 
 export default SiteLayout;
