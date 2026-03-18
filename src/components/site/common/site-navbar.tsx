@@ -75,7 +75,7 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 						</span>
 					</Link>
 				))}
-				<Link href="/contact" className="btn font-normal btn-outline">
+				<Link href="/mission" className="btn font-normal btn-outline">
 					Our Mission
 				</Link>
 			</nav>
@@ -112,7 +112,7 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 						</nav>
 						<div>
 							<Link
-								href="/contact"
+								href="/mission"
 								className="hover:text-primary duration-150 flex justify-between group"
 							>
 								<span className="text-2xl">Our Mission</span>

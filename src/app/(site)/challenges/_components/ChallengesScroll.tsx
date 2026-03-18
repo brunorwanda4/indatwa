@@ -22,7 +22,7 @@ const Player = createPlayer({ features: videoFeatures });
 
 const TOTAL = ELabChallenges.length;
 const ROUNDS = 5;
-const START = 2;
+const START = 1;
 
 function buildList(done: boolean[]) {
 	return Array.from({ length: ROUNDS }, (_, r) =>
