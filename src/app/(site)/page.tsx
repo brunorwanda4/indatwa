@@ -1,10 +1,12 @@
+import Scales from "@/components/ui/scales";
 import SiteHero from "./_components/hero";
 
 const HomePage = () => {
 	return (
-		<div>
+		<section>
+			<Scales orientation="vertical" />
 			<SiteHero />
-		</div>
+		</section>
 	);
 };
 

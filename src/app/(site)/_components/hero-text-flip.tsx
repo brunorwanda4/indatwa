@@ -30,7 +30,7 @@ export default function HeroTextFlip() {
 					>
 						African Leadership University
 					</Link>{" "}
-					across Rwanda, Kenya, Nigeria, South Africa, and Senegal. We build
+					across Rwanda, Kenya, Nigeria, South Africa, and Gambia. We build
 					solutions to real African challenges through technology and
 					collaboration.
 				</p>
