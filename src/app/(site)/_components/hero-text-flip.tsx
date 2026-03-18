@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import SiteFooter from "@/components/site/common/site-footer";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-import { cn } from "@/lib/utils";
 
 export default function HeroTextFlip() {
 	return (
