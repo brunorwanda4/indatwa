@@ -1,11 +1,9 @@
 "use client";
 
-import { createPlayer, videoFeatures } from "@videojs/react";
 import { CalendarDays, CheckCircle2, Hash, Play } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { VideoPlayer } from "@/components/site/videos/videojs";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CometCard } from "@/components/ui/comet-card";
 import {
@@ -17,8 +15,6 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { type Challenge, ELabChallenges } from "@/const/e-lab-challengs";
-
-const Player = createPlayer({ features: videoFeatures });
 
 const TOTAL = ELabChallenges.length;
 const ROUNDS = 5;

@@ -1,3 +1,16 @@
+export interface Challenge {
+	id: number;
+	label: string; // "001"
+	tag: string; // "002"  ← shown above the subtitle/title
+	name: string;
+	title: string; // big word shown on slide  e.g. "Particles"
+	description: string;
+	image: string;
+	video?: string;
+	time: string;
+	completed: boolean;
+}
+
 export const ELabChallenges: Omit<Challenge, "completed">[] = [
 	{
 		id: 1,
