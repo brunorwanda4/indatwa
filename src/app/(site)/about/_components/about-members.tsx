@@ -17,15 +17,13 @@ const GroupMembers = () => {
 		{
 			title: "Rebecca Isaboke",
 			country: "Kenya",
-			image:
-				"https://images.unsplash.com/photo-1697909623564-3dae17f6c20b?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			image: "/images/Rebecca.jpeg",
 			className: "absolute top-40 left-[25%] rotate-[-7deg]",
 		},
 		{
 			title: "Shawn Bamigboye",
 			country: "Nigeria",
-			image:
-				"https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			image: "/images/Shawn.jpeg",
 			className: "absolute top-5 left-[40%] rotate-[8deg]",
 		},
 		{

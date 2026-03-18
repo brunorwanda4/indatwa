@@ -5,8 +5,8 @@ export const SiteNavPage = [
 		href: "/about",
 	},
 	{
-		label: "Projects",
-		description: "OUR SOLUTIONS",
-		href: "/projects",
+		label: "E-Lab",
+		description: "CHALLENGES",
+		href: "/challenges",
 	},
 ];
