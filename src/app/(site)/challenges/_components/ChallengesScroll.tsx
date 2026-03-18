@@ -4,6 +4,7 @@ import { createPlayer, videoFeatures } from "@videojs/react";
 import { CalendarDays, CheckCircle2, Hash, Play } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { VideoPlayer } from "@/components/site/videos/videojs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CometCard } from "@/components/ui/comet-card";
@@ -364,18 +365,19 @@ function ChallengeDialog({
 				style={{ scrollbarWidth: "none" }}
 			>
 				{/* Visual header */}
-				<div className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center border-b border-white/8 bg-[#0e0e0e]">
-					<div className="absolute z-10 w-36 h-28 rounded-xl overflow-hidden border border-white/10 bg-white/5">
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img
+				<div className="relative w-full h-[80vh] overflow-hidden flex items-center justify-center border-b border-white/8 bg-[#0e0e0e]">
+					{ch.video ? (
+						<VideoPlayer src={ch.video} className=" w-full" />
+					) : (
+						<Image
 							src={ch.image}
-							alt={ch.name}
-							className="w-full h-full object-cover opacity-55"
-							onError={(e) =>
-								((e.target as HTMLImageElement).style.display = "none")
-							}
+							priority
+							alt={ch.title}
+							className="object-contain"
+							fill
 						/>
-					</div>
+					)}
+
 					<span className="absolute top-4 left-5 font-mono text-[10px] tracking-widest text-white/30">
 						{ch.label}
 					</span>
@@ -408,47 +410,20 @@ function ChallengeDialog({
 						{ch.description}
 					</DialogDescription>
 
-					{ch.video && (
-						<div className="mb-8">
-							<p className="font-mono text-[10px] tracking-widest uppercase mb-3 text-white/28">
-								— Video
-							</p>
-							<div className="flex items-center gap-3 p-4 bg-white/[0.025] border border-white/8">
-								<div className="w-10 h-10 rounded-full border border-white/18 flex items-center justify-center flex-shrink-0 text-white/45">
-									<Play className="w-4 h-4 fill-current" />
-								</div>
-								<div>
-									<p className="text-white/55 text-sm">
-										{ch.video.split("/").pop()}
-									</p>
-									<p className="font-mono text-[9px] text-white/22 tracking-widest mt-0.5">
-										CHALLENGE RECORDING
-									</p>
-								</div>
-							</div>
-						</div>
-					)}
-
 					<Separator className="mb-6 bg-white/8" />
 
-					{!ch.completed ? (
-						<Button
-							variant="outline"
-							className="w-full font-mono text-xs tracking-widest uppercase rounded-none h-11
+					<Button
+						variant="outline"
+						className="w-full font-mono text-xs tracking-widest uppercase rounded-none h-11
                 bg-transparent border-white/18 text-white/48 hover:bg-white/5 hover:text-white/80
                 hover:border-white/32 transition-all duration-200"
-							onClick={() => {
-								onComplete(ch.id);
-								onOpenChange(false);
-							}}
-						>
-							Mark as Completed
-						</Button>
-					) : (
-						<div className="w-full py-3 text-center font-mono text-xs tracking-widest text-white/22 border border-white/8 flex items-center justify-center gap-2">
-							<CheckCircle2 className="w-3.5 h-3.5" /> Already Completed
-						</div>
-					)}
+						onClick={() => {
+							onComplete(ch.id);
+							onOpenChange(false);
+						}}
+					>
+						Thanks For Visiting
+					</Button>
 				</div>
 			</DialogContent>
 		</Dialog>

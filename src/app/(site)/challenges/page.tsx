@@ -3,11 +3,8 @@ import ChallengesScroll from "./_components/ChallengesScroll";
 
 const ChallengesPage = () => {
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen relative">
 			<ChallengesScroll />
-			<div>
-				<SiteFooter />
-			</div>
 		</div>
 	);
 };

@@ -1,16 +1,3 @@
-export interface Challenge {
-	id: number;
-	label: string; // "001"
-	tag: string; // "002"  ← shown above the subtitle/title
-	name: string;
-	title: string; // big word shown on slide  e.g. "Particles"
-	description: string;
-	image: string;
-	video?: string;
-	time: string;
-	completed: boolean;
-}
-
 export const ELabChallenges: Omit<Challenge, "completed">[] = [
 	{
 		id: 1,
@@ -19,10 +6,10 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "Introduction",
 		title: "Introduction",
 		description:
-			"We are Indatwa students from ALU — a generation reshaping how Africa learns and builds. This challenge introduces who we are, where we come from, and why we show up every day.",
+			"We are Indatwa, a team of students from African Leadership University coming from Rwanda, Kenya, Nigeria, South Africa, and Senegal. This stage introduces who we are, our backgrounds, and the purpose that brings us together.",
 		image: "/images/1.jpeg",
 		video:
-			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2020.49.51.mp4?updatedAt=1773503881671/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
+			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2020.49.51.mp4?updatedAt=1773864743347/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "12/02/2026",
 	},
 	{
@@ -32,7 +19,7 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "Discover Africa",
 		title: "Discover Africa",
 		description:
-			"Mapping the invisible currents that shape our thinking. Students explored how cognitive bias, attention, and flow states define performance inside and outside the classroom.",
+			"We explored the history of Rwanda, focusing on the traditional kingdom and the role of clans such as Abanyiginya. This helped us understand cultural foundations and how leadership and society were organized.",
 		image: "/images/2.jpg",
 		time: "14/02/2026",
 	},
@@ -43,9 +30,10 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "HELP-LAB",
 		title: "HELP-LAB",
 		description:
-			"A deep dive into systems thinking — how small inputs ripple into massive outcomes. Teams modeled real-world feedback loops using data gathered from their campus environment.",
+			"We conducted research on the education system in Kimironko sector, analyzing how learning is delivered and experienced by students. This allowed us to identify gaps and challenges within the current system.",
 		image: "/images/3.jpeg",
-		video: "/videos/ghost.mp4",
+		video:
+			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2022.18.06.mp4?updatedAt=1773865910657/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "18/02/2026",
 	},
 	{
@@ -55,8 +43,10 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "Hunt for Treasure",
 		title: "Hunt for Treasure",
 		description:
-			"Understanding how communities amplify ideas — both destructive and generative. Students built micro-projects designed to break information silos within their cohort.",
+			"We visited GS Kimironko I and engaged directly with students through discussions and meetings. This helped us gather real insights and understand their experiences in the education system.",
 		image: "/images/4.jpeg",
+		video:
+			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2022.18.06.mp4?updatedAt=1773865910657/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "22/02/2026",
 	},
 	{
@@ -66,9 +56,10 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "Mission",
 		title: "Mission",
 		description:
-			"Sitting with ambiguity. This challenge stripped away rubrics and grades — students were given only a problem statement and 48 hours. No instructions. Pure creative autonomy.",
+			"Based on our research, we defined a clear problem statement and presented our proposed solutions. This stage focused on translating insights into actionable ideas that address real educational challenges.",
 		image: "/images/5.jpeg",
-		video: "/videos/void.mp4",
+		video:
+			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2022.16.06.mp4?updatedAt=1773865910657/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "26/02/2026",
 	},
 	{
@@ -78,7 +69,7 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		name: "Our Digital Print",
 		title: "Our Digital Print",
 		description:
-			"A challenge about mental clarity — identifying the static that prevents deep work. Teams presented personal anti-distraction systems built from behavioral research.",
+			"We designed and built our website to present our journey, research, and solutions. This platform serves as our digital identity and a way to share our work and impact with a wider audience.",
 		image: "/images/6.jpg",
 		time: "01/03/2026",
 	},
