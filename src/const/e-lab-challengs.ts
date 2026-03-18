@@ -21,7 +21,8 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		description:
 			"We are Indatwa students from ALU — a generation reshaping how Africa learns and builds. This challenge introduces who we are, where we come from, and why we show up every day.",
 		image: "/images/1.jpeg",
-		video: "/videos/indatwa.mp4",
+		video:
+			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2020.49.51.mp4?updatedAt=1773503881671/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "12/02/2026",
 	},
 	{
@@ -74,8 +75,8 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		id: 6,
 		label: "006",
 		tag: "006",
-		name: "Your Digital Print",
-		title: "Your Digital Print",
+		name: "Our Digital Print",
+		title: "Our Digital Print",
 		description:
 			"A challenge about mental clarity — identifying the static that prevents deep work. Teams presented personal anti-distraction systems built from behavioral research.",
 		image: "/images/6.jpg",

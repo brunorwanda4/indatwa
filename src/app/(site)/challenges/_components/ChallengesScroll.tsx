@@ -1,5 +1,6 @@
 "use client";
 
+import { createPlayer, videoFeatures } from "@videojs/react";
 import { CalendarDays, CheckCircle2, Hash, Play } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -16,9 +17,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { type Challenge, ELabChallenges } from "@/const/e-lab-challengs";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
+const Player = createPlayer({ features: videoFeatures });
 
 const TOTAL = ELabChallenges.length;
 const ROUNDS = 5;
@@ -144,7 +143,6 @@ function ProgressSidebar({
 	done: boolean[];
 	active: number;
 }) {
-	const completedCount = done.filter(Boolean).length;
 	return (
 		<aside className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center select-none">
 			<div className="w-px h-8 bg-white/10" />
@@ -361,15 +359,12 @@ function ChallengeDialog({
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent
-				className="max-w-[720px] w-[94vw] max-h-[88vh] overflow-y-auto p-0 gap-0
-          bg-[#0a0a0a] border border-white/10 rounded-none"
+				className="  sm:max-w-4xl  max-h-[88vh] overflow-y-auto p-0 gap-0
+          bg-base-100 border border-white/10 rounded-none"
 				style={{ scrollbarWidth: "none" }}
 			>
 				{/* Visual header */}
-				<div className="relative w-full h-48 overflow-hidden flex items-center justify-center border-b border-white/8 bg-[#0e0e0e]">
-					<div className="opacity-55">
-						<SmokyBlob size={200} seed={ch.id * 3} />
-					</div>
+				<div className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center border-b border-white/8 bg-[#0e0e0e]">
 					<div className="absolute z-10 w-36 h-28 rounded-xl overflow-hidden border border-white/10 bg-white/5">
 						{/* eslint-disable-next-line @next/next/no-img-element */}
 						<img
@@ -384,14 +379,6 @@ function ChallengeDialog({
 					<span className="absolute top-4 left-5 font-mono text-[10px] tracking-widest text-white/30">
 						{ch.label}
 					</span>
-					{ch.completed && (
-						<Badge
-							variant="outline"
-							className="absolute bottom-3 left-5 font-mono text-[10px] tracking-widest rounded-none border-white/22 text-white/45"
-						>
-							<CheckCircle2 className="w-3 h-3 mr-1" /> COMPLETED
-						</Badge>
-					)}
 				</div>
 
 				{/* Body */}

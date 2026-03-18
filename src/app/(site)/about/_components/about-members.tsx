@@ -11,30 +11,35 @@ const GroupMembers = () => {
 		{
 			title: "Bruno Rwanda",
 			country: "Rwanda",
+			role: "Technical Lead",
 			image: "/images/Bruno.jpg",
 			className: "absolute top-10 left-[20%] rotate-[-5deg]",
 		},
 		{
 			title: "Rebecca Isaboke",
 			country: "Kenya",
+			role: "Researcher & Editor",
 			image: "/images/Rebecca.jpeg",
 			className: "absolute top-40 left-[25%] rotate-[-7deg]",
 		},
 		{
 			title: "Shawn Bamigboye",
 			country: "Nigeria",
+			role: "Social Media Manager",
 			image: "/images/Shawn.jpeg",
 			className: "absolute top-5 left-[40%] rotate-[8deg]",
 		},
 		{
 			title: "Roheya Touray",
 			country: "Gambia",
+			role: "Assistant leader",
 			image: "/images/Roheya.jpeg",
 			className: "absolute top-32 left-[55%] rotate-[10deg]",
 		},
 		{
 			title: "Refilwe Junior Sodlulashe",
 			country: "South Africa",
+			role: "Think Tank Leader",
 			image: "/images/Refilwe.jpeg",
 			className: "absolute top-20 right-[35%] rotate-[2deg]",
 		},
@@ -57,6 +62,9 @@ const GroupMembers = () => {
 					</h3>
 					<span className="mt-2 block text-center text-sm text-neutral-500 dark:text-neutral-400">
 						{item.country}
+					</span>
+					<span className="mt-2 block text-center text-sm text-neutral-500 dark:text-neutral-400">
+						{item.role}
 					</span>
 				</DraggableCardBody>
 			))}
