@@ -1,12 +1,12 @@
 export const SiteNavPage = [
 	{
 		label: "Info",
-		description: "ABOUT ME",
+		description: "ABOUT US",
 		href: "/about",
 	},
 	{
-		label: "Work",
-		description: "SOME CASES",
-		href: "/work",
+		label: "Projects",
+		description: "OUR SOLUTIONS",
+		href: "/projects",
 	},
 ];

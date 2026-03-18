@@ -15,17 +15,10 @@ export default function SiteFooter({ className }: SiteFooterProps) {
 			)}
 		>
 			<div className=" flex gap-4 font-light text-sm">
-				<Link
-					href={"https://www.linkedin.com/in/rwanda-bruno-b5b5542a6/"}
-					target="_blank"
-					className=" cursor-pointer"
-				>
-					LINKEDIN
+				<Link href={"https://www.instagram.com/indatwa__/"} target="_blank">
+					YOUTUBE
 				</Link>
-				<Link href={"https://x.com/rwanda_bruno"} target="_blank">
-					TWITTER (X)
-				</Link>
-				<Link href={"https://www.instagram.com/bruno_rwanda/"} target="_blank">
+				<Link href={"https://www.youtube.com/@Indatwachannel"} target="_blank">
 					INSTAGRAM
 				</Link>
 			</div>

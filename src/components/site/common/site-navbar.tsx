@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
@@ -46,7 +47,7 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 				href={"/"}
 				className={cn("font-light text-2xl font-bricolage", className)}
 			>
-				Bruno Rwanda
+				<Image src={"/logo.svg"} alt="indatwa logo" height={40} width={40} />
 			</Link>
 		);
 	};
@@ -75,7 +76,7 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 					</Link>
 				))}
 				<Link href="/contact" className="btn font-normal btn-outline">
-					LET'S TALK
+					Our Mission
 				</Link>
 			</nav>
 			{/* mobile nav */}
@@ -114,7 +115,7 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 								href="/contact"
 								className="hover:text-primary duration-150 flex justify-between group"
 							>
-								<span className="text-2xl">Let's Talk</span>
+								<span className="text-2xl">Our Mission</span>
 								<MdOutlineArrowRightAlt
 									className="group-hover:translate-x-2 group-hover:-scale-x-125"
 									size={"38"}

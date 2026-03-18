@@ -11,29 +11,30 @@ import {
 
 export const metadata: Metadata = {
 	title: {
-		default: "Bruno Rwanda | Software Engineer & Software Architect",
-		template: "%s | Bruno Rwanda",
+		default: "Indatwa Group | Innovation & E-Lab Rwanda",
+		template: "%s | Indatwa",
 	},
+
 	description:
-		"Portfolio of Bruno Rwanda, a Software Engineer and Software Architect specializing in TypeScript, Rust, Next.js, and modern scalable systems. Building impactful digital solutions from Rwanda.",
+		"Indatwa Group is a youth-driven innovation and E-Lab initiative in Rwanda focused on solving real-world problems through technology, collaboration, and creativity.",
 
 	keywords: [
-		"Bruno Rwanda",
-		"Software Engineer",
-		"Software Architect",
-		"Next.js Developer",
-		"Rust Developer",
-		"TypeScript Developer",
-		"Full Stack Developer",
-		"Web Developer Rwanda",
-		"Desktop Developer Rwanda",
-		"Mobile Developer Rwanda",
+		"Indatwa",
+		"Indatwa Group",
+		"Indatwa Rwanda",
+		"E-Lab Rwanda",
+		"Youth Innovation Rwanda",
+		"Student Projects Rwanda",
+		"Technology Rwanda",
+		"Problem Solving Group",
+		"Digital Innovation",
+		"Community Development Rwanda",
 	],
 
-	authors: [{ name: "Bruno Rwanda" }],
-	creator: "Bruno Rwanda",
+	authors: [{ name: "Indatwa Group" }],
+	creator: "Indatwa Group",
 
-	metadataBase: new URL("https://brunorwanda.dev"), // change to your domain
+	metadataBase: new URL("https://indatwa.vercel.app"), // change later to real domain
 
 	icons: {
 		icon: "/logo.svg",
@@ -42,17 +43,17 @@ export const metadata: Metadata = {
 	},
 
 	openGraph: {
-		title: "Bruno Rwanda | Software Engineer & Software Architect",
+		title: "Indatwa Group | Innovation & E-Lab Rwanda",
 		description:
-			"Explore the portfolio of Bruno Rwanda. I design and build scalable software systems using Rust, TypeScript, and modern web technologies.",
-		url: "https://brunorwanda.dev",
-		siteName: "Bruno Rwanda Portfolio",
+			"Discover Indatwa Group, a team of young innovators building solutions to real-world challenges through collaboration, research, and technology.",
+		url: "https://indatwa.vercel.app",
+		siteName: "Indatwa Group",
 		images: [
 			{
-				url: "/og-image.png", // create this image later
+				url: "/og-image.png",
 				width: 1200,
 				height: 630,
-				alt: "Bruno Rwanda Portfolio",
+				alt: "Indatwa Group - Innovation Hub",
 			},
 		],
 		locale: "en_US",
@@ -61,9 +62,9 @@ export const metadata: Metadata = {
 
 	twitter: {
 		card: "summary_large_image",
-		title: "Bruno Rwanda | Software Engineer",
+		title: "Indatwa Group | Rwanda Innovation",
 		description:
-			"Software engineer building scalable platforms using Rust, TypeScript, and Next.js.",
+			"A youth-led innovation group solving real-world challenges using technology and creativity.",
 		images: ["/og-image.png"],
 	},
 
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
 		follow: true,
 	},
 
-	category: "technology",
+	category: "education",
 };
 
 export default function RootLayout({

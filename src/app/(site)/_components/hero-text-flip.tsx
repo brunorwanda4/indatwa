@@ -6,7 +6,6 @@ import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import { cn } from "@/lib/utils";
 
 export default function HeroTextFlip() {
-	const words = ["Developer", "Designer", "Architect", "Creator", "Awesome"];
 	return (
 		<div className=" w-screen  flex h-screen flex-col items-center gap-6 justify-end">
 			<motion.h1
@@ -18,21 +17,22 @@ export default function HeroTextFlip() {
 				}}
 				layout
 			>
-				<ContainerTextFlip words={words} />
+				<ContainerTextFlip />
 			</motion.h1>
 
 			<div className=" flex justify-end items-start w-3/5 z-20">
 				<p className=" max-w-md font-inter font-light text-sm leading-6">
-					Hello! I’m Bruno Rwanda a designer and creative developer from{" "}
+					We are Indatwa — students from{" "}
 					<Link
-						href={"https://www.gov.rw/"}
+						href={"https://www.alueducation.com/"}
 						target="_blank"
 						className=" link link-hover"
 					>
-						Rwanda
+						African Leadership University
 					</Link>{" "}
-					passionate about building meaningful digital experiences and creating
-					solutions that make ideas come to life.
+					across Rwanda, Kenya, Nigeria, South Africa, and Senegal. We build
+					solutions to real African challenges through technology and
+					collaboration.
 				</p>
 			</div>
 			<SiteFooter />
