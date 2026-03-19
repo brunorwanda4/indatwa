@@ -124,17 +124,13 @@ const SiteNavbar = ({ onMobileNavChange }: SiteNavbarProps) => {
 						</div>
 						<div className="flex gap-4 font-light text-sm justify-between mt-8">
 							<Link
-								href={"https://www.linkedin.com/in/rwanda-bruno-b5b5542a6/"}
+								href={"https://www.youtube.com/@Indatwachannel"}
 								target="_blank"
-								className="cursor-pointer"
 							>
-								LINKEDIN
-							</Link>
-							<Link href={"https://x.com/rwanda_bruno"} target="_blank">
-								TWITTER (X)
+								YOUTUBE
 							</Link>
 							<Link
-								href={"https://www.instagram.com/bruno_rwanda/"}
+								href={"https://www.instagram.com/indatwa__/"}
 								target="_blank"
 							>
 								INSTAGRAM
