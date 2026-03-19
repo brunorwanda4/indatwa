@@ -56,7 +56,7 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		title: "Hunt for Treasure",
 		description:
 			"We visited GS Kimironko I and engaged directly with students through discussions and meetings. This helped us gather real insights and understand their experiences in the education system.",
-		image: "/images/4.jpeg",
+		image: "/images/indatwa.jpeg",
 		video: "https://ik.imagekit.io/1cm9j7m7r/WhatsApp%20Video%202026-03-19%20at%2023.32.36.mp4?updatedAt=1773865910657/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "22/02/2026",
 	},
