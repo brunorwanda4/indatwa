@@ -21,8 +21,7 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		description:
 			"We are Indatwa, a team of students from African Leadership University coming from Rwanda, Kenya, Nigeria, South Africa, and Senegal. This stage introduces who we are, our backgrounds, and the purpose that brings us together.",
 		image: "/images/1.jpeg",
-		video:
-			"https://ik.imagekit.io/670koylwsb/WhatsApp%20Video%202026-03-18%20at%2020.49.51.mp4?updatedAt=1773864743347/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
+		video:"https://ik.imagekit.io/1cm9j7m7r/WhatsApp%20Video%202026-03-18%20at%2020.49.51.mp4?updatedAt=1773865910657/ik-master.m3u8?tr=sr-240_360_480_720_1080,l-subtitles,i-yt/english.srt,l-end",
 		time: "12/02/2026",
 	},
 	{
@@ -31,8 +30,7 @@ export const ELabChallenges: Omit<Challenge, "completed">[] = [
 		tag: "002",
 		name: "Discover Africa",
 		title: "Discover Africa",
-		description:
-			"We explored the history of Rwanda, focusing on the traditional kingdom and the role of clans such as Abanyiginya. This helped us understand cultural foundations and how leadership and society were organized.",
+		description:`As a diverse group we had to look at the community of focus and we found Rwanda as the best community to work with. In this Challenge we were having a podcast discussion on the public Education System of Rwanda and discovering some unknown factors that we didn't know about. How the Education systems are different from our home countries system and addressing common misconceptions about Rwanda's Education System.`,
 		image: "/images/2.jpg",
 		time: "14/02/2026",
 	},
